@@ -22,6 +22,26 @@ class CarController extends Controller
      *
      * @param  \Illuminate\Http\AdminCarStoreRequest  $request
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *     path="/api/admin/cars/",
+     *     summary="Add new Car by Admin.",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="title",
+     *                     type="string"
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Add new Car by Admin.")
+     * )
      */
     public function store(AdminCarStoreRequest $request)
     {
@@ -36,7 +56,32 @@ class CarController extends Controller
      *
      * @param  \Illuminate\Http\AdminCarUpdateRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse 
+     * @return \Illuminate\Http\JsonResponse
+     * @OA\Put(
+     *     path="/api/admin/cars/{id}",
+     *     summary="Edit Car by Admin.",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="integer",
+
+     *                 ),
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="title",
+     *                     type="string"
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Edit Car by Admin.")
+     * )
      */
     public function update(AdminCarUpdateRequest $request, $id)
     {
@@ -51,6 +96,11 @@ class CarController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Delete(
+     *     path="/api/admin/cars/{id}",
+     *     summary="Remove Car by Admin.",
+     *     @OA\Response(response="200", description="Remove Car by Admin.")
+     * )
      */
     public function destroy($id)
     {

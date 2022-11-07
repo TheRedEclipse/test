@@ -21,6 +21,10 @@ class CarController extends Controller
      * Display a listing of the Cars.
      *
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Get(
+     *     path="/api/cars",
+     *     @OA\Response(response="200", description="Display a listing of Cars.")
+     * )
      */
     public function index()
     {
@@ -35,6 +39,11 @@ class CarController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Get(
+     *     path="/api/cars/{id}",
+     *     summary="Show a Car.",
+     *     @OA\Response(response="200", description="Display a Car.")
+     * )
      */
     public function show($id)
     {
@@ -42,7 +51,6 @@ class CarController extends Controller
             'success' => true,
             'car' => $this->carService->show($id)
         ]);
-        
     }
 
     /**
@@ -51,6 +59,26 @@ class CarController extends Controller
      * @param  \Illuminate\Http\CarUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Put(
+     *     path="/api/cars/{id}",
+     *     summary="Edit Car by User.",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="integer"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="remove",
+     *                     type="boolean"
+     *                 ),
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Display a listing of Cars.")
+     * )
      */
     public function update(CarUpdateRequest $request, $id)
     {

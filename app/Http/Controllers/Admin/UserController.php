@@ -22,6 +22,34 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\AdminUserStoreRequest  $request
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *     path="/api/admin/users",
+     *     summary="Add a new User by Admin.",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="email",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="password",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="role_name",
+     *                     type="string"
+     *                 ),
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Add a new User by Admin.")
+     * )
      */
     public function store(AdminUserStoreRequest $request)
     {
@@ -37,6 +65,38 @@ class UserController extends Controller
      * @param  \Illuminate\Http\AdminUserUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse 
+     * @OA\Put(
+     *     path="/api/admin/users/{id}",
+     *     summary="Edit User details by Admin.",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="integer"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="email",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="password",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="role_name",
+     *                     type="string"
+     *                 ),
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Edit User details by Admin.")
+     * )
      */
     public function update(AdminUserUpdateRequest $request, $id)
     {
@@ -51,6 +111,11 @@ class UserController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
+      * @OA\Delete(
+     *     path="/api/admin/users/{id}",
+     *     summary="Remove User by Admin.",
+     *     @OA\Response(response="200", description="Remove User by Admin.")
+     * )
      */
     public function destroy($id)
     {

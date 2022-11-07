@@ -21,6 +21,26 @@ class AuthController extends Controller
      *
      * @param  \Illuminate\Http\AuthLoginRequest  $request
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *     path="/api/user/login",
+     *     summary="Login User.",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="password",
+     *                     type="string"
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Login User with token response.")
+     * )
      */
     public function login(AuthLoginRequest $authLoginRequest)
     {
@@ -31,6 +51,11 @@ class AuthController extends Controller
      * Log the user out (Invalidate the token)
      *
      * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *     path="/api/user/logout",
+     *     summary="Logout User.",
+     *     @OA\Response(response="200", description="Logout User.")
+     * )
      */
     public function logout()
     {

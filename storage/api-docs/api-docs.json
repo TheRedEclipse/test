@@ -1,0 +1,343 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test User-Car API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/admin/cars/": {
+            "post": {
+                "summary": "Add new Car by Admin.",
+                "description": "Store a newly created Car by Admin.",
+                "operationId": "f444ac098c8b4a431ad022f80cf2790c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add new Car by Admin."
+                    }
+                }
+            }
+        },
+        "/api/admin/cars/{id}": {
+            "put": {
+                "summary": "Edit Car by Admin.",
+                "description": "Update the specified Car by Admin.",
+                "operationId": "fb72d4b063806efbf97cfb6bbc6e3468",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Edit Car by Admin."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Remove Car by Admin.",
+                "description": "Remove the specified Car by Admin.",
+                "operationId": "72073ae4714c70ee16daefe409655b93",
+                "responses": {
+                    "200": {
+                        "description": "Remove Car by Admin."
+                    }
+                }
+            }
+        },
+        "/api/admin/users": {
+            "post": {
+                "summary": "Add a new User by Admin.",
+                "description": "Store a newly created User by Admin.",
+                "operationId": "7601d6cfa9768b3857d0e58d45eb618b",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add a new User by Admin."
+                    }
+                }
+            }
+        },
+        "/api/admin/users/{id}": {
+            "put": {
+                "summary": "Edit User details by Admin.",
+                "description": "Update the specified User by Admin.",
+                "operationId": "a13246ab4f01cf3913b77f7d4520bbd7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Edit User details by Admin."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Remove User by Admin.",
+                "description": "Remove the specified User by Admin.",
+                "operationId": "edba4ea5d13c283794da36b1eb31b2fd",
+                "responses": {
+                    "200": {
+                        "description": "Remove User by Admin."
+                    }
+                }
+            }
+        },
+        "/api/user/login": {
+            "post": {
+                "summary": "Login User.",
+                "description": "Login the User",
+                "operationId": "fa481c4ebcab70051c9df8d0624a47e8",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login User with token response."
+                    }
+                }
+            }
+        },
+        "/api/user/logout": {
+            "post": {
+                "summary": "Logout User.",
+                "description": "Log the user out (Invalidate the token)",
+                "operationId": "1450bb66c6720716bd057bef3d23211a",
+                "responses": {
+                    "200": {
+                        "description": "Logout User."
+                    }
+                }
+            }
+        },
+        "/api/cars": {
+            "get": {
+                "summary": "Display a listing of the Cars.",
+                "operationId": "1fd4f1fdc0da258c5084bcdce4bbe693",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of Cars."
+                    }
+                }
+            }
+        },
+        "/api/cars/{id}": {
+            "get": {
+                "summary": "Show a Car.",
+                "description": "Display the specified Car.",
+                "operationId": "b222bfa902eefbb6a4a875762081dcbc",
+                "responses": {
+                    "200": {
+                        "description": "Display a Car."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Edit Car by User.",
+                "description": "Update the specified Car.",
+                "operationId": "1d232cedb5f39024dccd947cddd10087",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "remove": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of Cars."
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "summary": "Display a listing of the Users.",
+                "operationId": "c457726701591d1183b53aa71fc13441",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of Users."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add new User.",
+                "description": "Registration of the new user",
+                "operationId": "592819a0265360b2014512d6dbfaf0e7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Added new User."
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "summary": "Show a User.",
+                "description": "Display the specified User.",
+                "operationId": "36a33ff774d5cba33c039dec2c3e0287",
+                "responses": {
+                    "200": {
+                        "description": "Display a User."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Edit User details.",
+                "description": "Update the specified User.",
+                "operationId": "b9091397c8b25f12c6adb74be6ce3a5a",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Edit User details."
+                    }
+                }
+            }
+        }
+    }
+}
